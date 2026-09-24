@@ -1,0 +1,442 @@
+/* =========================================
+   FACULTY ATTENDANCE PAGE
+========================================= */
+
+.faculty-attendance-page {
+    width: 100%;
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+.attendance-date {
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.attendance-date span {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.attendance-date strong {
+    margin-top: 3px;
+    color: #374151;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   RULES
+========================================= */
+
+.attendance-rules {
+    display: flex;
+    gap: 14px;
+    padding: 16px 18px;
+    margin-bottom: 20px;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    background: #f8fbff;
+}
+
+.rules-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #eff6ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.attendance-rules h4 {
+    margin: 0;
+    color: #1e3a8a;
+    font-size: 14px;
+}
+
+.attendance-rules ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+}
+
+.attendance-rules li {
+    margin-bottom: 4px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.attendance-rules strong {
+    color: #374151;
+}
+
+
+/* =========================================
+   SUCCESS / ERROR
+========================================= */
+
+.attendance-success {
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    background: #f0fdf4;
+    color: #15803d;
+    font-size: 13px;
+}
+
+.attendance-error {
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    background: #fef2f2;
+    color: #b91c1c;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   PANEL
+========================================= */
+
+.attendance-panel {
+    width: 100%;
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.attendance-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.attendance-panel-header h3 {
+    margin: 0;
+    color: #111827;
+    font-size: 17px;
+    font-weight: 650;
+}
+
+.attendance-panel-header p {
+    margin: 5px 0 0;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.faculty-total,
+.submitted-badge {
+    padding: 7px 11px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.submitted-badge {
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+
+/* =========================================
+   FACULTY LIST
+========================================= */
+
+.faculty-attendance-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.faculty-attendance-card {
+    min-height: 72px;
+    padding: 12px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.faculty-attendance-card:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   FACULTY
+========================================= */
+
+.faculty-card-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.faculty-avatar {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #eff6ff;
+    color: #1d4ed8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.faculty-card-left > div:last-child {
+    min-width: 0;
+}
+
+.faculty-card-left strong {
+    display: block;
+    color: #1f2937;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.faculty-card-left span {
+    display: block;
+    margin-top: 3px;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   ATTENDANCE SELECTOR
+========================================= */
+
+.attendance-selector {
+    display: flex;
+    gap: 8px;
+}
+
+.attendance-option {
+    min-width: 100px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.attendance-option:hover {
+    border-color: #cbd5e1;
+}
+
+.attendance-option.selected.present {
+    border-color: #86efac;
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.attendance-option.selected.absent {
+    border-color: #fca5a5;
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.option-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    font-size: 11px;
+}
+
+.selected.present .option-radio {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.selected.absent .option-radio {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* =========================================
+   SUBMITTED STATUS
+========================================= */
+
+.attendance-status-badge {
+    min-width: 90px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.attendance-present {
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.attendance-absent {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.attendance-submit-area {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.attendance-submit-area > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.attendance-submit-area strong {
+    color: #374151;
+    font-size: 13px;
+}
+
+.attendance-submit-area span {
+    margin-top: 4px;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.attendance-submit-button {
+    min-width: 170px;
+    height: 42px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.attendance-submit-button:hover {
+    background: #1d4ed8;
+}
+
+.attendance-submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   LOCKED MESSAGE
+========================================= */
+
+.attendance-locked-message {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 7px;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 12px;
+    text-align: center;
+}
+
+.attendance-locked-message strong {
+    color: #374151;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.attendance-loading {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .attendance-date {
+        align-items: flex-start;
+    }
+
+    .attendance-panel {
+        padding: 18px;
+    }
+
+    .attendance-panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .faculty-attendance-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .attendance-selector {
+        width: 100%;
+    }
+
+    .attendance-option {
+        flex: 1;
+    }
+
+    .attendance-submit-area {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .attendance-submit-button {
+        width: 100%;
+    }
+}

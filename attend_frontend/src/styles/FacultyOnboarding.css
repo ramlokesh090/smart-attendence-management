@@ -1,0 +1,390 @@
+.faculty-onboarding-page {
+    width: 100%;
+}
+
+
+/* ===============================
+   PAGE HEADER
+   =============================== */
+
+.onboarding-page-header {
+    margin-bottom: 24px;
+}
+
+.onboarding-label {
+    color: #2563eb;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.onboarding-page-header h2 {
+    margin: 5px 0 0;
+
+    color: #111827;
+
+    font-size: 25px;
+
+    font-weight: 700;
+}
+
+.onboarding-page-header p {
+    margin: 6px 0 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* ===============================
+   FORM CARD
+   =============================== */
+
+.faculty-form-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 10px;
+}
+
+
+/* ===============================
+   FORM HEADER
+   =============================== */
+
+.faculty-form-header {
+    min-height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 20px 24px;
+
+    border-bottom: 1px solid #eef2f7;
+}
+
+.faculty-form-header h3 {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 16px;
+}
+
+.faculty-form-header p {
+    margin: 5px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+.faculty-form-badge {
+    padding: 6px 10px;
+
+    border-radius: 6px;
+
+    background: #eff6ff;
+
+    color: #1d4ed8;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+
+/* ===============================
+   FORM
+   =============================== */
+
+.faculty-form-card form {
+    padding: 25px;
+}
+
+
+/* ===============================
+   SECTION
+   =============================== */
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section:last-of-type {
+    margin-bottom: 10px;
+}
+
+.form-section-title {
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 10px;
+
+    padding-bottom: 12px;
+
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.form-section-title h4 {
+    margin: 0;
+
+    color: #334155;
+
+    font-size: 13px;
+}
+
+.form-section-title span {
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+
+/* ===============================
+   GRID
+   =============================== */
+
+.faculty-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* ===============================
+   FIELD
+   =============================== */
+
+.faculty-field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.faculty-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.faculty-field label {
+    color: #334155;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.faculty-field input,
+.faculty-field textarea {
+    width: 100%;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    padding: 11px 12px;
+
+    color: #111827;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.faculty-field input {
+    height: 43px;
+}
+
+.faculty-field textarea {
+    resize: vertical;
+
+    min-height: 80px;
+
+    font-family: inherit;
+}
+
+.faculty-field input::placeholder,
+.faculty-field textarea::placeholder {
+    color: #a1a9b6;
+}
+
+.faculty-field input:hover,
+.faculty-field textarea:hover {
+    border-color: #94a3b8;
+}
+
+.faculty-field input:focus,
+.faculty-field textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.faculty-field small {
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+
+/* ===============================
+   MESSAGES
+   =============================== */
+
+.form-success {
+    margin: 20px 25px 0;
+
+    padding: 11px 13px;
+
+    border: 1px solid #bbf7d0;
+
+    border-radius: 7px;
+
+    background: #f0fdf4;
+
+    color: #15803d;
+
+    font-size: 12px;
+}
+
+.form-error {
+    margin: 20px 25px 0;
+
+    padding: 11px 13px;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 7px;
+
+    background: #fef2f2;
+
+    color: #b91c1c;
+
+    font-size: 12px;
+}
+
+
+/* ===============================
+   ACTIONS
+   =============================== */
+
+.faculty-form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding-top: 20px;
+
+    margin-top: 10px;
+
+    border-top: 1px solid #eef2f7;
+}
+
+.secondary-button,
+.primary-button {
+    height: 40px;
+
+    padding: 0 18px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+}
+
+.secondary-button {
+    border: 1px solid #cbd5e1;
+
+    background: #ffffff;
+
+    color: #475569;
+}
+
+.secondary-button:hover {
+    background: #f8fafc;
+}
+
+.primary-button {
+    border: 1px solid #1d4ed8;
+
+    background: #1d4ed8;
+
+    color: #ffffff;
+}
+
+.primary-button:hover:not(:disabled) {
+    background: #1e40af;
+}
+
+.primary-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 700px) {
+
+    .faculty-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faculty-field.full-width {
+        grid-column: auto;
+    }
+
+    .faculty-form-header {
+        padding: 18px;
+    }
+
+    .faculty-form-card form {
+        padding: 18px;
+    }
+
+    .faculty-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .secondary-button,
+    .primary-button {
+        width: 100%;
+    }
+}

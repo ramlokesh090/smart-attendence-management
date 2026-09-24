@@ -1,0 +1,575 @@
+/* =========================================
+   MAIN PAGE
+========================================= */
+
+.attendance-details-page {
+    width: 100%;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.attendance-details-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+.attendance-back-btn {
+    height: 38px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.attendance-back-btn:hover {
+    background: #f9fafb;
+}
+
+.attendance-details-title h1 {
+    margin: 0 0 4px;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.attendance-details-title p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   FACULTY INFORMATION
+========================================= */
+
+.faculty-details-card {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 16px 18px;
+
+    margin-bottom: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+}
+
+
+/* Avatar */
+
+.faculty-details-avatar {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 14px;
+
+    border-radius: 50%;
+
+    background: #003b71;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* Faculty name */
+
+.faculty-details-main {
+    width: 200px;
+
+    flex-shrink: 0;
+}
+
+.faculty-details-main h2 {
+    margin: 0 0 4px;
+
+    font-size: 16px;
+
+    color: #111827;
+}
+
+.faculty-details-main p {
+    margin: 0;
+
+    font-size: 12px;
+
+    color: #6b7280;
+}
+
+
+/* Faculty information */
+
+.faculty-details-info {
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+}
+
+.faculty-details-info > div {
+    min-width: 120px;
+
+    padding: 0 16px;
+
+    border-left: 1px solid #f0f0f0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.faculty-details-info span {
+    font-size: 11px;
+
+    color: #9ca3af;
+
+    text-transform: uppercase;
+
+    font-weight: 600;
+}
+
+.faculty-details-info strong {
+    font-size: 13px;
+
+    color: #374151;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+.attendance-filter-card {
+    width: 100%;
+
+    padding: 18px;
+
+    margin-bottom: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+}
+
+.filter-heading {
+    margin-bottom: 14px;
+}
+
+.filter-heading h3 {
+    margin: 0 0 4px;
+
+    font-size: 16px;
+
+    color: #111827;
+}
+
+.filter-heading p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #6b7280;
+}
+
+.attendance-filter-row {
+    display: flex;
+    align-items: end;
+
+    gap: 14px;
+}
+
+.filter-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.filter-field label {
+    font-size: 12px;
+
+    color: #374151;
+
+    font-weight: 600;
+}
+
+.filter-field input {
+    width: 180px;
+
+    height: 38px;
+
+    padding: 0 10px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    outline: none;
+}
+
+.filter-field input:focus {
+    border-color: #2563eb;
+}
+
+.apply-filter-btn {
+    height: 38px;
+
+    padding: 0 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #003b71;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.apply-filter-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   SUMMARY
+========================================= */
+
+.attendance-summary {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.summary-card {
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+}
+
+.summary-card span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+
+    color: #6b7280;
+}
+
+.summary-card strong {
+    display: block;
+
+    font-size: 25px;
+
+    color: #111827;
+}
+
+.present-summary strong {
+    color: #047857;
+}
+
+.absent-summary strong {
+    color: #b91c1c;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.attendance-error {
+    padding: 12px 16px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    color: #b91c1c;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   ATTENDANCE TABLE
+========================================= */
+
+.attendance-table-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.attendance-table-header {
+    padding: 17px 18px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.attendance-table-header h3 {
+    margin: 0 0 4px;
+
+    font-size: 16px;
+
+    color: #111827;
+}
+
+.attendance-table-header p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #6b7280;
+}
+
+.attendance-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.attendance-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: 13px 16px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.attendance-table th {
+    font-size: 12px;
+
+    color: #6b7280;
+
+    font-weight: 600;
+
+    background: #fafafa;
+}
+
+.attendance-table td {
+    font-size: 13px;
+
+    color: #374151;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.attendance-status-badge {
+    display: inline-flex;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.attendance-status-badge.present {
+    background: #ecfdf5;
+
+    color: #047857;
+}
+
+.attendance-status-badge.absent {
+    background: #fef2f2;
+
+    color: #b91c1c;
+}
+
+
+/* =========================================
+   LOADING / EMPTY
+========================================= */
+
+.attendance-table-loading {
+    padding: 40px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+.attendance-no-data {
+    padding: 40px 20px;
+
+    text-align: center;
+}
+
+.attendance-no-data h3 {
+    margin: 0 0 6px;
+
+    font-size: 16px;
+
+    color: #111827;
+}
+
+.attendance-no-data p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #6b7280;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .faculty-details-card {
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+    .faculty-details-main {
+        flex: 1;
+
+        width: auto;
+    }
+
+    .faculty-details-info {
+        width: 100%;
+
+        padding-left: 60px;
+    }
+
+    .attendance-filter-row {
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .attendance-details-header {
+        align-items: flex-start;
+    }
+
+    .faculty-details-card {
+        align-items: flex-start;
+    }
+
+    .faculty-details-info {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 12px;
+
+        padding-left: 0;
+    }
+
+    .faculty-details-info > div {
+        min-width: 0;
+
+        padding: 0;
+
+        border-left: none;
+    }
+
+    .attendance-filter-row {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .filter-field input {
+        width: 100%;
+    }
+
+    .apply-filter-btn {
+        width: 100%;
+    }
+
+    .attendance-summary {
+        grid-template-columns: 1fr;
+    }
+}

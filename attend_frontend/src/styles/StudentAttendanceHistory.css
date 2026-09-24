@@ -1,0 +1,475 @@
+.student-history-page,
+.student-details-page {
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.student-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.student-history-header h1,
+.student-details-header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #111827;
+}
+
+.student-history-header p,
+.student-details-header p {
+    margin: 6px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.student-total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 12px 20px;
+    border-radius: 10px;
+}
+
+.student-total strong {
+    font-size: 24px;
+    color: #111827;
+}
+
+.student-total span {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* SEARCH */
+
+.student-history-search {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+.student-history-search input {
+    width: 100%;
+    max-width: 500px;
+    height: 42px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 0 13px;
+    outline: none;
+}
+
+.student-history-search input:focus {
+    border-color: #2563eb;
+}
+
+/* HORIZONTAL CARD */
+
+.student-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.student-history-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px 20px;
+}
+
+.student-history-name {
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.student-history-avatar,
+.student-details-avatar {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eff6ff;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.student-history-name h3 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    color: #111827;
+}
+
+.student-history-name span {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.student-history-info {
+    flex: 1;
+    min-width: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.student-history-info span {
+    font-size: 11px;
+    color: #9ca3af;
+    text-transform: uppercase;
+}
+
+.student-history-info strong {
+    font-size: 13px;
+    color: #374151;
+    word-break: break-word;
+}
+
+.student-history-button {
+    height: 38px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 7px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.student-history-button span {
+    margin-left: 7px;
+}
+
+.student-history-button:hover {
+    background: #1f2937;
+}
+
+/* ERROR / EMPTY */
+
+.student-history-error {
+    padding: 14px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+}
+
+.student-history-message {
+    padding: 45px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    color: #6b7280;
+}
+
+.student-history-message h3 {
+    margin: 0 0 7px;
+    color: #374151;
+}
+
+/* DETAILS HEADER */
+
+.student-details-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.student-back-button {
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* DETAILS CARD */
+
+.student-details-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.student-details-main {
+    min-width: 220px;
+}
+
+.student-details-main h2 {
+    margin: 0 0 5px;
+    font-size: 19px;
+    color: #111827;
+}
+
+.student-details-main span {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.student-details-info {
+    margin-left: auto;
+    display: flex;
+    gap: 35px;
+}
+
+.student-details-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.student-details-info span {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.student-details-info strong {
+    font-size: 13px;
+    color: #374151;
+}
+
+/* FILTER */
+
+.student-attendance-filter {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.student-attendance-filter div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.student-attendance-filter label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.student-attendance-filter input {
+    height: 40px;
+    min-width: 180px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 0 10px;
+}
+
+.student-attendance-filter button {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* SUMMARY */
+
+.student-attendance-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.student-attendance-summary > div {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.student-attendance-summary span {
+    display: block;
+    color: #6b7280;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.student-attendance-summary strong {
+    font-size: 24px;
+}
+
+.student-attendance-summary .present {
+    border-left: 4px solid #16a34a;
+}
+
+.student-attendance-summary .absent {
+    border-left: 4px solid #dc2626;
+}
+
+/* TABLE */
+
+.student-attendance-table-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.student-attendance-table-title {
+    padding: 18px 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.student-attendance-table-title h3 {
+    margin: 0;
+    color: #111827;
+}
+
+.student-attendance-table-title p {
+    margin: 5px 0 0;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.student-attendance-table-wrapper {
+    overflow-x: auto;
+}
+
+.student-attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.student-attendance-table th,
+.student-attendance-table td {
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
+}
+
+.student-attendance-table th {
+    background: #f8fafc;
+    color: #6b7280;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.student-status {
+    display: inline-flex;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.student-status.present {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.student-status.absent {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .student-history-card {
+        flex-wrap: wrap;
+    }
+
+    .student-history-name {
+        width: 100%;
+    }
+
+    .student-history-info {
+        flex: 1;
+    }
+
+    .student-details-card {
+        flex-wrap: wrap;
+    }
+
+    .student-details-info {
+        width: 100%;
+        margin-left: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .student-history-page,
+    .student-details-page {
+        padding: 18px;
+    }
+
+    .student-history-header {
+        align-items: flex-start;
+    }
+
+    .student-history-card {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .student-history-name {
+        min-width: 0;
+    }
+
+    .student-history-button {
+        width: 100%;
+    }
+
+    .student-details-info {
+        grid-template-columns: 1fr;
+    }
+
+    .student-attendance-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .student-attendance-filter input,
+    .student-attendance-filter button {
+        width: 100%;
+    }
+
+    .student-attendance-summary {
+        grid-template-columns: 1fr;
+    }
+}

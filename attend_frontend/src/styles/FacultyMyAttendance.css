@@ -1,0 +1,238 @@
+.my-attendance-page {
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.my-attendance-header {
+    margin-bottom: 25px;
+}
+
+.my-attendance-header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #111827;
+}
+
+.my-attendance-header p {
+    margin: 7px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* FILTER */
+
+.my-attendance-filter {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 22px;
+}
+
+.my-attendance-filter div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.my-attendance-filter label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.my-attendance-filter input {
+    height: 42px;
+    min-width: 190px;
+    padding: 0 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    outline: none;
+}
+
+.my-attendance-filter input:focus {
+    border-color: #2563eb;
+}
+
+.my-attendance-filter button {
+    height: 42px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.my-attendance-filter button:hover {
+    background: #1d4ed8;
+}
+
+/* SUMMARY */
+
+.my-attendance-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.my-summary-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.my-summary-card span {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.my-summary-card strong {
+    font-size: 25px;
+    color: #111827;
+}
+
+.my-summary-card.present {
+    border-left: 4px solid #16a34a;
+}
+
+.my-summary-card.absent {
+    border-left: 4px solid #dc2626;
+}
+
+/* TABLE */
+
+.my-attendance-table-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.my-attendance-table-title {
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.my-attendance-table-title h3 {
+    margin: 0;
+    font-size: 17px;
+    color: #111827;
+}
+
+.my-attendance-table-title p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.my-attendance-table-wrapper {
+    overflow-x: auto;
+}
+
+.my-attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.my-attendance-table th,
+.my-attendance-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13px;
+}
+
+.my-attendance-table th {
+    background: #f8fafc;
+    color: #6b7280;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.my-attendance-table td {
+    color: #374151;
+}
+
+/* BADGES */
+
+.my-attendance-badge {
+    display: inline-flex;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.my-attendance-badge.present {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.my-attendance-badge.absent {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* MESSAGE */
+
+.my-attendance-message {
+    padding: 50px;
+    text-align: center;
+    color: #6b7280;
+}
+
+.my-attendance-message h3 {
+    margin: 0 0 7px;
+    color: #374151;
+}
+
+.my-attendance-message p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.my-attendance-error {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #fecaca;
+    background: #fef2f2;
+    color: #b91c1c;
+    border-radius: 8px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .my-attendance-page {
+        padding: 18px;
+    }
+
+    .my-attendance-header h1 {
+        font-size: 22px;
+    }
+
+    .my-attendance-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .my-attendance-filter input,
+    .my-attendance-filter button {
+        width: 100%;
+    }
+
+    .my-attendance-summary {
+        grid-template-columns: 1fr;
+    }
+}
