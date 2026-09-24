@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import "./styles/Signup.css";
 import { loginSuccess } from "./redux/authSlice";
 
-const API_URL = "http://localhost:8081";
+const API_URL = "https://smart-attendence-management.onrender.com";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -176,8 +176,7 @@ export default function Login() {
 
 
                     <div className="login-note">
-                        Login is currently available using your
-                        registered email address.
+                        For Admin login use this email - "admin@gmail.com"
                     </div>
 
                 </div>

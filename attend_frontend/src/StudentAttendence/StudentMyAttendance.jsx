@@ -78,7 +78,7 @@ export default function StudentMyAttendance() {
             setError("");
 
             const response = await fetch(
-                `http://localhost:8081/api/faculty/student/${studentId}/attendance?fromDate=${fromDate}&toDate=${toDate}`
+                `https://smart-attendence-management.onrender.com/api/faculty/student/${studentId}/attendance?fromDate=${fromDate}&toDate=${toDate}`
             );
 
             if (!response.ok) {

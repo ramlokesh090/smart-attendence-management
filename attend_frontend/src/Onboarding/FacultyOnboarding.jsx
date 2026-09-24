@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/FacultyOnboarding.css";
 
-const API_URL = "http://localhost:8081";
+const API_URL = "https://smart-attendence-management.onrender.com";
 
 export default function FacultyOnboarding() {
 

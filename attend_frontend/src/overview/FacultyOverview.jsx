@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import FacultyStudents from "./FacultyStudents";
 import "../styles/FacultyOverview.css"
-const API_URL = "http://localhost:8081";
+const API_URL = "https://smart-attendence-management.onrender.com";
 
 export default function FacultyOverview() {
 
