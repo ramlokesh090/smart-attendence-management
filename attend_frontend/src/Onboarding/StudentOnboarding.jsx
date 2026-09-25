@@ -1,135 +1,147 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "../styles/StudentOnboarding.css";
 
 const API_URL = "https://smart-attendence-management.onrender.com";
 
 export default function StudentOnboarding() {
+  const facultyId = useSelector((state) => state.auth.facultyId);
 
-    const facultyId = useSelector(
-        (state) => state.auth.facultyId
-    );
+  const [formData, setFormData] = useState({
+    email: "",
+    studentName: "",
+    studentAge: "",
+    studentClass: "",
+    studentSection: "",
+    phoneNumber: "",
+  });
 
-    const [formData, setFormData] = useState({
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const [facultyLoading, setFacultyLoading] = useState(false);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+  };
+  useEffect(() => {
+    if (!facultyId) {
+      return;
+    }
+
+    const fetchFacultyDetails = async () => {
+      try {
+        setFacultyLoading(true);
+        setError("");
+
+        const response = await fetch(`${API_URL}/api/admin/faculty/${facultyId}`);
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          setError(data.message || "Unable to fetch faculty details.");
+          return;
+        }
+
+        setFormData((previous) => ({
+          ...previous,
+          studentClass: data.className || "",
+          studentSection: data.sectionName || "",
+        }));
+      } catch (error) {
+        console.error(error);
+        setError("Unable to fetch faculty details.");
+      } finally {
+        setFacultyLoading(false);
+      }
+    };
+
+    fetchFacultyDetails();
+  }, [facultyId]);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setSuccess("");
+    setError("");
+
+    if (!facultyId) {
+      setError("Faculty information is not available.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        `${API_URL}/api/faculty/${facultyId}/students`,
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+            email: formData.email.trim(),
+            studentName: formData.studentName.trim(),
+            studentAge: Number(formData.studentAge),
+            studentClass: formData.studentClass.trim(),
+            studentSection: formData.studentSection.trim(),
+            phoneNumber: Number(formData.phoneNumber),
+          }),
+        },
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Unable to register student.");
+
+        return;
+      }
+
+      setSuccess("Student registered successfully.");
+
+      setFormData({
         email: "",
         studentName: "",
         studentAge: "",
         studentClass: "",
         studentSection: "",
-        phoneNumber: ""
+        phoneNumber: "",
+      });
+    } catch (error) {
+      console.error(error);
+
+      setError("Unable to connect to the server.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleClear = () => {
+    setFormData({
+      email: "",
+      studentName: "",
+      studentAge: "",
+      studentClass: "",
+      studentSection: "",
+      phoneNumber: "",
     });
 
-    const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState("");
-    const [error, setError] = useState("");
+    setError("");
+    setSuccess("");
+  };
 
-    const handleChange = (e) => {
+  return (
+    <div className="student-onboarding-page">
+      {/* ================= PAGE HEADER ================= */}
 
-        const { name, value } = e.target;
-
-        setFormData((previous) => ({
-            ...previous,
-            [name]: value
-        }));
-    };
-
-    const handleSubmit = async (e) => {
-
-        e.preventDefault();
-
-        setSuccess("");
-        setError("");
-
-        if (!facultyId) {
-            setError("Faculty information is not available.");
-            return;
-        }
-
-        setLoading(true);
-
-        try {
-
-            const response = await fetch(
-                `${API_URL}/api/faculty/${facultyId}/students`,
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-                        email: formData.email.trim(),
-                        studentName: formData.studentName.trim(),
-                        studentAge: Number(formData.studentAge),
-                        studentClass: formData.studentClass.trim(),
-                        studentSection: formData.studentSection.trim(),
-                        phoneNumber: Number(formData.phoneNumber)
-                    })
-                }
-            );
-
-            const data = await response.json();
-
-            if (!response.ok) {
-
-                setError(
-                    data.message ||
-                    "Unable to register student."
-                );
-
-                return;
-            }
-
-            setSuccess(
-                "Student registered successfully."
-            );
-
-            setFormData({
-                email: "",
-                studentName: "",
-                studentAge: "",
-                studentClass: "",
-                studentSection: "",
-                phoneNumber: ""
-            });
-
-        } catch (error) {
-
-            console.error(error);
-
-            setError(
-                "Unable to connect to the server."
-            );
-
-        } finally {
-
-            setLoading(false);
-        }
-    };
-
-    const handleClear = () => {
-
-        setFormData({
-            email: "",
-            studentName: "",
-            studentAge: "",
-            studentClass: "",
-            studentSection: "",
-            phoneNumber: ""
-        });
-
-        setError("");
-        setSuccess("");
-    };
-
-
-    return (
-        <div className="student-onboarding-page">
-
-            {/* ================= PAGE HEADER ================= */}
-
-            {/* <div className="onboarding-page-header">
+      {/* <div className="onboarding-page-header">
 
                 <div>
 
@@ -150,288 +162,186 @@ export default function StudentOnboarding() {
 
             </div> */}
 
+      {/* ================= FORM CARD ================= */}
 
-            {/* ================= FORM CARD ================= */}
+      <div className="student-form-card">
+        <div className="student-form-header">
+          <div>
+            <h3>Student Information</h3>
 
-            <div className="student-form-card">
+            <p>Enter the student's personal and academic details.</p>
+          </div>
 
-                <div className="student-form-header">
+          <div className="student-form-badge">STUDENT</div>
+        </div>
 
-                    <div>
+        {/* ================= MESSAGES ================= */}
 
-                        <h3>
-                            Student Information
-                        </h3>
+        {success && <div className="student-form-success">{success}</div>}
 
-                        <p>
-                            Enter the student's personal and
-                            academic details.
-                        </p>
+        {error && <div className="student-form-error">{error}</div>}
 
-                    </div>
+        <form className="student-registration-form" onSubmit={handleSubmit}>
+          {/* ================= PERSONAL DETAILS ================= */}
 
-                    <div className="student-form-badge">
-                        STUDENT
-                    </div>
+          <div className="student-form-section">
+            <div className="student-section-title">
+              <h4>Personal Details</h4>
 
-                </div>
-
-
-                {/* ================= MESSAGES ================= */}
-
-                {success && (
-                    <div className="student-form-success">
-                        {success}
-                    </div>
-                )}
-
-                {error && (
-                    <div className="student-form-error">
-                        {error}
-                    </div>
-                )}
-
-
-                <form
-                    className="student-registration-form"
-                    onSubmit={handleSubmit}
-                >
-
-                    {/* ================= PERSONAL DETAILS ================= */}
-
-                    <div className="student-form-section">
-
-                        <div className="student-section-title">
-
-                            <h4>
-                                Personal Details
-                            </h4>
-
-                            <span>
-                                Student information
-                            </span>
-
-                        </div>
-
-
-                        <div className="student-form-grid">
-
-                            {/* Student Name */}
-
-                            <div className="student-field">
-
-                                <label htmlFor="studentName">
-                                    Student Name
-                                </label>
-
-                                <input
-                                    id="studentName"
-                                    type="text"
-                                    name="studentName"
-                                    value={formData.studentName}
-                                    onChange={handleChange}
-                                    placeholder="Enter student name"
-                                    required
-                                />
-
-                            </div>
-
-
-                            {/* Age */}
-
-                            <div className="student-field">
-
-                                <label htmlFor="studentAge">
-                                    Age
-                                </label>
-
-                                <input
-                                    id="studentAge"
-                                    type="number"
-                                    name="studentAge"
-                                    value={formData.studentAge}
-                                    onChange={handleChange}
-                                    placeholder="Enter age"
-                                    min="1"
-                                    required
-                                />
-
-                            </div>
-
-
-                            {/* Email */}
-
-                            <div className="student-field full-width">
-
-                                <label htmlFor="studentEmail">
-                                    Email Address
-                                </label>
-
-                                <input
-                                    id="studentEmail"
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    placeholder="Enter student email"
-                                    required
-                                />
-
-                                <small>
-                                    This email will be used by the
-                                    student to log in.
-                                </small>
-
-                            </div>
-
-
-                            {/* Phone */}
-
-                            <div className="student-field">
-
-                                <label htmlFor="phoneNumber">
-                                    Phone Number
-                                </label>
-
-                                <input
-                                    id="phoneNumber"
-                                    type="tel"
-                                    name="phoneNumber"
-                                    value={formData.phoneNumber}
-                                    onChange={handleChange}
-                                    placeholder="Enter phone number"
-                                    required
-                                />
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    {/* ================= ACADEMIC DETAILS ================= */}
-
-                    <div className="student-form-section">
-
-                        <div className="student-section-title">
-
-                            <h4>
-                                Academic Details
-                            </h4>
-
-                            <span>
-                                Class and section assignment
-                            </span>
-
-                        </div>
-
-
-                        <div className="student-form-grid">
-
-                            {/* Class */}
-
-                            <div className="student-field">
-
-                                <label htmlFor="studentClass">
-                                    Class
-                                </label>
-
-                                <input
-                                    id="studentClass"
-                                    type="text"
-                                    name="studentClass"
-                                    value={formData.studentClass}
-                                    onChange={handleChange}
-                                    placeholder="e.g. B.Tech CSE"
-                                    required
-                                />
-
-                            </div>
-
-
-                            {/* Section */}
-
-                            <div className="student-field">
-
-                                <label htmlFor="studentSection">
-                                    Section
-                                </label>
-
-                                <input
-                                    id="studentSection"
-                                    type="text"
-                                    name="studentSection"
-                                    value={formData.studentSection}
-                                    onChange={handleChange}
-                                    placeholder="e.g. A"
-                                    required
-                                />
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    {/* ================= FACULTY INFO ================= */}
-
-                    <div className="student-assignment-info">
-
-                        <div className="assignment-info-icon">
-                            i
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Faculty Assignment
-                            </strong>
-
-                            <p>
-                                This student will be registered
-                                under your faculty account.
-                            </p>
-
-                            <span>
-                                Faculty ID: {facultyId || "Not available"}
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    {/* ================= ACTIONS ================= */}
-
-                    <div className="student-form-actions">
-
-                        <button
-                            type="button"
-                            className="student-secondary-button"
-                            onClick={handleClear}
-                        >
-                            Clear
-                        </button>
-
-                        <button
-                            type="submit"
-                            className="student-primary-button"
-                            disabled={loading}
-                        >
-                            {loading
-                                ? "Registering..."
-                                : "Register Student"
-                            }
-                        </button>
-
-                    </div>
-
-                </form>
-
+              <span>Student information</span>
             </div>
 
-        </div>
-    );
+            <div className="student-form-grid">
+              {/* Student Name */}
+
+              <div className="student-field">
+                <label htmlFor="studentName">Student Name</label>
+
+                <input
+                  id="studentName"
+                  type="text"
+                  name="studentName"
+                  value={formData.studentName}
+                  onChange={handleChange}
+                  placeholder="Enter student name"
+                  required
+                />
+              </div>
+
+              {/* Age */}
+
+              <div className="student-field">
+                <label htmlFor="studentAge">Age</label>
+
+                <input
+                  id="studentAge"
+                  type="number"
+                  name="studentAge"
+                  value={formData.studentAge}
+                  onChange={handleChange}
+                  placeholder="Enter age"
+                  min="1"
+                  required
+                />
+              </div>
+
+              {/* Email */}
+
+              <div className="student-field full-width">
+                <label htmlFor="studentEmail">Email Address</label>
+
+                <input
+                  id="studentEmail"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter student email"
+                  required
+                />
+
+                <small>This email will be used by the student to log in.</small>
+              </div>
+
+              {/* Phone */}
+
+              <div className="student-field">
+                <label htmlFor="phoneNumber">Phone Number</label>
+
+                <input
+                  id="phoneNumber"
+                  type="tel"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  placeholder="Enter phone number"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* ================= ACADEMIC DETAILS ================= */}
+
+          <div className="student-form-section">
+            <div className="student-section-title">
+              <h4>Academic Details</h4>
+
+              <span>Class and section assignment</span>
+            </div>
+
+            <div className="student-form-grid">
+              {/* Class */}
+
+              <div className="student-field">
+                <label htmlFor="studentClass">Class</label>
+
+                <input
+                  id="studentClass"
+                  type="text"
+                  name="studentClass"
+                  value={facultyLoading ? "Loading..." : formData.studentClass}
+                  placeholder="Faculty assigned class"
+                  readOnly
+                  required
+                />
+              </div>
+
+              {/* Section */}
+
+              <div className="student-field">
+                <label htmlFor="studentSection">Section</label>
+
+                <input
+                  id="studentSection"
+                  type="text"
+                  name="studentSection"
+                  value={
+                    facultyLoading ? "Loading..." : formData.studentSection
+                  }
+                  placeholder="Faculty assigned section"
+                  readOnly
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* ================= FACULTY INFO ================= */}
+
+          <div className="student-assignment-info">
+            <div className="assignment-info-icon">i</div>
+
+            <div>
+              <strong>Faculty Assignment</strong>
+
+              <p>This student will be registered under your faculty account.</p>
+
+              <span>Faculty ID: {facultyId || "Not available"}</span>
+            </div>
+          </div>
+
+          {/* ================= ACTIONS ================= */}
+
+          <div className="student-form-actions">
+            <button
+              type="button"
+              className="student-secondary-button"
+              onClick={handleClear}
+            >
+              Clear
+            </button>
+
+            <button
+              type="submit"
+              className="student-primary-button"
+              disabled={loading}
+            >
+              {loading ? "Registering..." : "Register Student"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
